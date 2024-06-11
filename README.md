@@ -16,7 +16,7 @@ Subhrajit Roy<sup>2</sup></a>&nbsp;,&nbsp;
 
 <p align='center' style="text-align:center;font-size:2.5 em;">
 <b>
-    <a href="https://unispac.github.io/shallow-vs-deep-alignment.github.io/static/paper.pdf" target="_blank" style="text-decoration: none;">Paper</a>&nbsp;
+    <a href="https://arxiv.org/abs/2406.05946" target="_blank" style="text-decoration: none;">Paper</a>&nbsp;
 </b>
 </p>
 
