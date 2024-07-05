@@ -207,7 +207,7 @@ Testing against [GCG Attack](https://github.com/llm-attacks/llm-attacks) and [De
         --prompt_style='llama2' \
         --evaluator='none' \
         --save_path='logs/fine-tuning-attack/safety_eval/pure_bad_sft.json' \
-        --eval_template='plain' ;
+        --eval_template='pure_bad' ;
   ```
 
 **Fine-tuning with token-wise constrained fine-tuning objective instead (you would see much lower ASR with the constrained objective):**
@@ -244,7 +244,7 @@ Testing against [GCG Attack](https://github.com/llm-attacks/llm-attacks) and [De
         --prompt_style='llama2' \
         --evaluator='none' \
         --save_path='logs/fine-tuning-attack/safety_eval/pure_bad_soft_sft.json' \
-        --eval_template='plain' ;
+        --eval_template='pure_bad' ;
   ```
 
 **Fine-tuning on Utility Dataset: (Fine-tuning using the constrained objective can obtain comparable results to standard SFT)**
