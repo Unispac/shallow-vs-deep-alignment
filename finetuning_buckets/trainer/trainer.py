@@ -1130,13 +1130,21 @@ class ConstrainedSFTTrainer(Trainer):
         append_concat_token=True,
         add_special_tokens=True,
     ):
+
         if dataset is None:
             raise ValueError("The dataset should not be None")
-
         # check if torch dataset / dataloader and do nothing
         if isinstance(dataset, (torch.utils.data.IterableDataset, torch.utils.data.Dataset, ConstantLengthDataset)):
             return dataset
-
+        column_names = (
+            dataset.column_names if isinstance(dataset, (datasets.Dataset, datasets.IterableDataset)) else None
+        )
+        if column_names and "input_ids" in column_names:
+            if formatting_func is not None:
+                warnings.warn(
+                    "You passed a dataset that is already processed (contains an `input_ids` field) together with a valid formatting function. Therefore `formatting_func` will be ignored."
+                )
+            return dataset
         if not packing:
             return self._prepare_non_packed_dataloader(
                 tokenizer,
@@ -1147,7 +1155,6 @@ class ConstrainedSFTTrainer(Trainer):
                 add_special_tokens,
                 remove_unused_columns,
             )
-
         else:
             return self._prepare_packed_dataloader(
                 tokenizer,
